@@ -4,7 +4,6 @@
 
 #include "leveldb/db.h"
 
-using namespace std;
 
 int main(int argc, char** argv)
 {
@@ -17,8 +16,8 @@ int main(int argc, char** argv)
 
     if (false == status.ok())
     {
-        cerr << "Unable to open/create test database './testdb'" << endl;
-        cerr << status.ToString() << endl;
+        std::cerr << "Unable to open/create test database './testdb'" << std::endl;
+        std::cerr << status.ToString() << std::endl;
         return -1;
     }
     
@@ -26,10 +25,10 @@ int main(int argc, char** argv)
     leveldb::WriteOptions writeOptions;
     for (unsigned int i = 0; i < 256; ++i)
     {
-        ostringstream keyStream;
+        std::ostringstream keyStream;
         keyStream << "Key" << i;
         
-        ostringstream valueStream;
+        std::ostringstream valueStream;
         valueStream << "Test data value: " << i;
         
         db->Put(writeOptions, keyStream.str(), valueStream.str());
@@ -40,13 +39,13 @@ int main(int argc, char** argv)
     
     for (it->SeekToFirst(); it->Valid(); it->Next())
     {
-        cout << it->key().ToString() << " : " << it->value().ToString() << endl;
+        std::cout << it->key().ToString() << " : " << it->value().ToString() << std::endl;
     }
     
     if (false == it->status().ok())
     {
-        cerr << "An error was found during the scan" << endl;
-        cerr << it->status().ToString() << endl; 
+        std::cerr << "An error was found during the scan" << std::endl;
+        std::cerr << it->status().ToString() << std::endl; 
     }
     
     delete it;

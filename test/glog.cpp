@@ -1,3 +1,4 @@
+#include <iostream>
 #include <glog/logging.h>
  
 int main(int argc, char* argv[])
@@ -9,5 +10,6 @@ int main(int argc, char* argv[])
     LOG(WARNING) << "This is a warning message";
     //LOG(ERROR) << "This is an error message";
     //LOG(FATAL) << "This is a fatal message";
+    std::cout << "Done" << std::endl;
     return 0;
 }
