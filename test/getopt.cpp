@@ -18,6 +18,7 @@ static const char *optString = "Il:o:vh?";
 void display_usage( void )
 {
 	puts( "doc2html - convert documents to HTML" );
+    std::cout << optString << std::endl;
 	/* ... */
 	exit( EXIT_FAILURE );
 }
@@ -46,6 +47,7 @@ int main( int argc, char *argv[] )
 	 * populate globalArgs. 
 	 */
 	opt = getopt( argc, argv, optString );
+    std::cout << "opt : " << opt << std::endl;
 	while( opt != -1 ) {
 		switch( opt ) {
 			case 'I':

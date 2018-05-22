@@ -30,6 +30,9 @@ getopt: getopt.cpp
 find_in_range: find_in_range.cpp
 	$(CXX) -o $@ $< -g -Wall -std=c++11 
 
+multi_line_string: multi_line_string.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11 
+
 clean:
 	rm -f glog
 	rm -f leveldb
