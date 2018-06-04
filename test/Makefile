@@ -33,6 +33,12 @@ find_in_range: find_in_range.cpp
 multi_line_string: multi_line_string.cpp
 	$(CXX) -o $@ $< -g -Wall -std=c++11 
 
+md_example: md_example.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11 -I/usr/local/Cellar/cryptopp/7.0.0/include/ -L/usr/local/Cellar/cryptopp/7.0.0/lib/ -lcryptopp
+
+md_example1: md_example1.cpp
+	$(CXX) -std=c++11 -o ./md5.o ./md5/md5.cpp ./md_example1.cpp
+
 clean:
 	rm -f glog
 	rm -f leveldb
