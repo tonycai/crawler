@@ -39,6 +39,15 @@ md_example: md_example.cpp
 md_example1: md_example1.cpp
 	$(CXX) -std=c++11 -o ./md5.o ./md5/md5.cpp ./md_example1.cpp
 
+connect: connect.cpp
+	$(CXX) -std=c++11 -o $@ $< \
+	  -I/usr/local/mysql/connector-c++-1.1/include/cppconn \
+      -I/Users/tonycai/workspace/mysql_install/mysql-connector-c++-1.1.11/ \
+      -L/usr/local/mysql/connector-c++-1.1/lib \
+      -lmysqlcppconn
+	install_name_tool -change @loader_path/usr/local/mysql/connector-c++-1.1/lib/libmysqlcppconn.7.1.1.11.dylib /usr/local/mysql/connector-c++-1.1/lib/libmysqlcppconn.7.1.1.11.dylib $@
+	otool -L $@
+
 clean:
 	rm -f glog
 	rm -f leveldb
