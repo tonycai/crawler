@@ -60,6 +60,12 @@ multithreading: multithreading.cpp
 htmltitle: htmltitle.cpp
 	$(CXX) -o $@ $< -Wall -I/usr/include/curl -I/usr/include/libxml2 -L/usr/lib -lcurl -lxml2 -v
 	#$(CXX) -o $@ $< -Wall -I/usr/include/curl -I/usr/include/libxml2 -L/usr/lib/libcurl.dylib -L/usr/lib/libxml2.dylib -lcurl -lxml2 -v
+regex_01: regex_01.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11
+regex_02: regex_02.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11
+regex_03: regex_03.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11
 
 clean:
 	rm -f glog
