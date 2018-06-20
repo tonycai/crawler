@@ -53,6 +53,8 @@ mk_fifo_r: mk_fifo_r.cpp
 	$(CXX) -o $@ $< -g -Wall -std=c++11 
 mk_fifo_w: mk_fifo_w.cpp
 	$(CXX) -o $@ $< -g -Wall -std=c++11 
+read_pipeline: read_pipeline.cpp
+	$(CXX) -o $@ $< -O3 
 
 clean:
 	rm -f glog
