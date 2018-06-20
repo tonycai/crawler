@@ -55,6 +55,11 @@ mk_fifo_w: mk_fifo_w.cpp
 	$(CXX) -o $@ $< -g -Wall -std=c++11 
 read_pipeline: read_pipeline.cpp
 	$(CXX) -o $@ $< -O3 
+multithreading: multithreading.cpp
+	$(CXX) -o $@ $<  -std=c++11 -lpthread -Wint-to-void-pointer-cast
+htmltitle: htmltitle.cpp
+	$(CXX) -o $@ $< -Wall -I/usr/include/curl -I/usr/include/libxml2 -L/usr/lib -lcurl -lxml2 -v
+	#$(CXX) -o $@ $< -Wall -I/usr/include/curl -I/usr/include/libxml2 -L/usr/lib/libcurl.dylib -L/usr/lib/libxml2.dylib -lcurl -lxml2 -v
 
 clean:
 	rm -f glog
