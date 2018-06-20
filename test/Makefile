@@ -47,6 +47,12 @@ connect: connect.cpp
       -lmysqlcppconn
 	install_name_tool -change @loader_path/usr/local/mysql/connector-c++-1.1/lib/libmysqlcppconn.7.1.1.11.dylib /usr/local/mysql/connector-c++-1.1/lib/libmysqlcppconn.7.1.1.11.dylib $@
 	otool -L $@
+pipe: pipe.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11 
+mk_fifo_r: mk_fifo_r.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11 
+mk_fifo_w: mk_fifo_w.cpp
+	$(CXX) -o $@ $< -g -Wall -std=c++11 
 
 clean:
 	rm -f glog
